@@ -1,3 +1,4 @@
+@Library('my_shared_library')_
 node { 
 	 def mvn1
 	stage ('Checkout Code')
