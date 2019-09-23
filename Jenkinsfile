@@ -5,14 +5,10 @@ node {
 			checkout scm
 			workspace = pwd() 
 	    		 sh "ls -lat"
-			  mvn1 = tool 'MAVEN_HOME'
-   }
-stage ('Build') {
-       sh "'${mvn1}/bin/mvn' -Dmaven.test.failure.ignore clean package"
-   }
+  		 }
+        stage ('create war')
+   	 {
+    	mavenbuildexec "mvn build"
+    	}
 
 }
-
-}
-       }
-       }
