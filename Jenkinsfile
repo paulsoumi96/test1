@@ -1,15 +1,12 @@
-@Library('my_shared_library')_
-node { 
-	 def mvn1
-	stage ('Checkout Code')
-		{
-			checkout scm
-			workspace = pwd() 
-	    		 sh "ls -lat"
-  		 }
-        stage ('create war')
-   	 {
-    	mavenbuildexec "mvn build"
-    	}
-
+node {
+   def mvn1
+   def app
+   stage('Checkout') { 
+      git 'https://github.com/paulsoumi96/test.git'
+      mvn1 = tool 'MAVEN_HOME'
+   }
+   
+stage ('Build') {
+       sh "'${mvn1}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+   }
 }
