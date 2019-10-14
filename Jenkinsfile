@@ -1,13 +1,13 @@
 node {
-   def mvn1
+   def gr
    def app
    stage('Checkout') { 
       git 'https://github.com/paulsoumi96/test.git'
-      mvn1 = tool 'MAVEN_HOME'
+      gr = tool 'gradle'
    }
    
 stage ('Build') {
       // sh "'${mvn1}/bin/mvn' -Dmaven.test.failure.ignore clean package"
-   sh 'gradle build --info'
+   sh 'gr build --info'
    }
 }
