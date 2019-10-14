@@ -7,6 +7,7 @@ node {
    }
    
 stage ('Build') {
-       sh "'${mvn1}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+      // sh "'${mvn1}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+   sh 'gradle build --info'
    }
 }
