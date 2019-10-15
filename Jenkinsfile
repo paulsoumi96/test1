@@ -8,7 +8,7 @@ node {
       workspace = pwd ()
        sh 'ls -lat'
    }
-   stage('Gradle initialization')}
+   stage('Gradle initialization'){
       sh './gradlew init'
       echo "initialization complete"
    }
